@@ -6,7 +6,6 @@ import { FooterModule } from '../../shared/footer/footer.module';
 import { HeaderModule } from '../../shared/header/header.module';
 
 
-
 @NgModule({
   declarations: [
     FaqComponent

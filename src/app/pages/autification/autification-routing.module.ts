@@ -27,11 +27,6 @@ const authRouting: Routes = [
       }
     ]
   },
-  {
-    path: '',
-    redirectTo: 'auth/login',
-    pathMatch: 'full',
-  },
 ]
 
 @NgModule({
