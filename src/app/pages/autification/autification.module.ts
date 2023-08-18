@@ -7,6 +7,7 @@ import { AuthComponent } from './auth.component';
 import { AutificationRoutingModule } from './autification-routing.module';
 import { HeaderModule } from '../../shared/header/header.module';
 import { FooterModule } from '../../shared/footer/footer.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { FooterModule } from '../../shared/footer/footer.module';
     CommonModule,
     HeaderModule,
     FooterModule,
-    AutificationRoutingModule
+    AutificationRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class AutificationModule { }

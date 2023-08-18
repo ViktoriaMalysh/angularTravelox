@@ -1,1 +1,26 @@
-<p>login works!</p>
+<main>
+  <div [formGroup]="formLogin" class="ui grid">
+
+    <div class="four wide column">
+      <label>Enter your email</label>
+      <input
+        [ngClass]="(formLogin.controls['email'].invalid && formLogin.controls['email'].touched) ? 'ui input error' : 'ui input'"
+        type="text" formControlName="email">
+      <p *ngIf="formLogin.controls['email'].invalid && formLogin.controls['email'].touched"
+      class="ui pointing red basic label">Field is required</p>
+    </div>
+
+    <div class="four wide column">
+      <label>Enter your password</label>
+      <input [type]="hide ? 'password' : 'text'" formControlName="password">
+      <button class="btn btn-default" (click)="shownPassword()">
+        <i *ngIf="hide" class="eye slash icon"></i>
+        <i *ngIf="!hide" class="eye icon"></i>
+      </button>
+      <p class="ui pointing red basic label"
+        *ngIf="formLogin.controls['password'].invalid && formLogin.controls['password'].touched">Field is required</p>
+    </div>
+  </div>
+
+  <button class="ui button" [disabled]="formLogin.invalid && formLogin.touched"  (click)="singIn()">Sign In</button>
+</main>
