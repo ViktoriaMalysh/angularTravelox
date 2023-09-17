@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'auth',
+    path: '',
     loadChildren: () => import('./pages/autification/autification.module').then(m => m.AutificationModule)
   },
   {
@@ -22,11 +22,11 @@ const routes: Routes = [
     path: 'terms-of-service',
     loadChildren: () => import('./pages/terms-of-service/terms-of-service.module').then(m => m.TermsOfServiceModule)
   },
-  {
-    path: 'auth',
-    redirectTo: 'auth/login',
-    pathMatch: 'full',
-  },
+  // {
+  //   path: 'auth',
+  //   redirectTo: 'auth/login',
+  //   pathMatch: 'full',
+  // },
   {
     path: '404',
     loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
