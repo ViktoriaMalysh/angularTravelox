@@ -1,26 +1,47 @@
-<main>
-  <div [formGroup]="formLogin" class="ui grid">
+<main class="container-login">
 
-    <div class="four wide column">
-      <label>Enter your email</label>
+  <div [formGroup]="formLogin" class="ui raised segment block-form">
+
+    <div class="center-block">
+      <img src="assets/logo-login.png" alt="">
+    </div>
+
+    <p class="center-block title">login with your travelox account</p>
+
+    <div class="block-input ui input">
+      <label>Email Address</label>
       <input
         [ngClass]="(formLogin.controls['email'].invalid && formLogin.controls['email'].touched) ? 'ui input error' : 'ui input'"
-        type="text" formControlName="email">
+        type="text" formControlName="email" placeholder="Your Email">
       <p *ngIf="formLogin.controls['email'].invalid && formLogin.controls['email'].touched"
-      class="ui pointing red basic label">Field is required</p>
+         class="ui pointing red basic label">Field is required</p>
     </div>
 
-    <div class="four wide column">
-      <label>Enter your password</label>
-      <input [type]="hide ? 'password' : 'text'" formControlName="password">
-      <button class="btn btn-default" (click)="shownPassword()">
+    <div class="block-input ui input">
+      <label>Password</label>
+      <input [type]="hide ? 'password' : 'text'" formControlName="password"  placeholder="Your Password">
+      <a class="btn btn-default eye" (click)="shownPassword()">
         <i *ngIf="hide" class="eye slash icon"></i>
         <i *ngIf="!hide" class="eye icon"></i>
-      </button>
+      </a>
       <p class="ui pointing red basic label"
-        *ngIf="formLogin.controls['password'].invalid && formLogin.controls['password'].touched">Field is required</p>
+         *ngIf="formLogin.controls['password'].invalid && formLogin.controls['password'].touched">Field is required</p>
+    </div>
+
+    <div class="field">
+      <div class="ui checkbox">
+        <input class="hidden" readonly="" tabindex="0" type="checkbox" value="">
+        <label>Remember Me</label>
+      </div>
+      <a class="" href="/forgot-password">Forgot Password?</a>
+    </div>
+
+    <button class="ui button button-default" [disabled]="formLogin.invalid && formLogin.touched"  (click)="singIn()">
+      <i class="sign-in icon"></i>Sign In
+    </button>
+
+    <div class="help">
+      <p>Don't have an account? <a href="/register"> Register.</a></p>
     </div>
   </div>
-
-  <button class="ui button" [disabled]="formLogin.invalid && formLogin.touched"  (click)="singIn()">Sign In</button>
 </main>

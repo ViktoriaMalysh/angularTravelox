@@ -1,0 +1,57 @@
+.container-login {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+
+  .block-form {
+    padding: 50px;
+    margin: auto;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 5px rgba(0, 0, 0, 0.05);
+    height: max-content;
+    width: 483px;
+
+    .title {
+      font-size: 20px;
+      margin-bottom: 50px;
+    }
+
+    .block-input {
+      display: flex;
+      flex-direction: column;
+      clear: both;
+      margin: 0 0 1em;
+
+      label {
+        font-weight: 400;
+        font-family: "Roboto";
+        font-style: normal;
+        font-size: 16px;
+        line-height: 1.8;
+      }
+    }
+
+    .eye {
+      position: relative;
+      top: -15px;
+      right: -175px;
+    }
+
+    .help {
+      margin-top: 40px;
+
+      p {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        color: #14212b;
+        line-height: 1.8;
+      }
+    }
+  }
+}
