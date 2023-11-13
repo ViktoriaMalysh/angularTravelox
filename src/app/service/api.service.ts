@@ -15,7 +15,7 @@ export class ApiService {
     ) { }
 
   getTours(data: any): Observable<any> {
-    const body = {...data}
+    const body = {data: {...data}}
     return this.http.post(`${API}/get-tours`, body);
   }
 
