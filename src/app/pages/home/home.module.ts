@@ -12,11 +12,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { LoaderModule } from '../../shared/components/louder/loader.module';
+import { CardTourComponent } from './components/card-tour/card-tour.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    CardTourComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +36,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatNativeDateModule,
     MatDatepickerModule,
     MatToolbarModule,
+    MatPaginatorModule,
+    LoaderModule,
+    MatCardModule,
+    MatButtonModule,
     RouterModule.forChild([
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ])

@@ -1,2 +1,12 @@
-<p>home works!</p>
-<app-search-form></app-search-form>
+<app-search-form (dataTours)="getToursData($event)" (isLoadingData)="startLoader($event)"></app-search-form>
+<app-loader [loading]="isLoading"></app-loader>
+<ng-container *ngFor="let item of paginateData">
+  <app-card-tour [cardTour]="item"></app-card-tour>
+</ng-container>
+<mat-paginator
+  (page)="handlePageChange($event)"
+  [length]="pageLength"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  [pageIndex]="pageIndex" aria-label="Select page">
+</mat-paginator>

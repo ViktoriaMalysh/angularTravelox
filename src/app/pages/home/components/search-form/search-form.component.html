@@ -1,29 +1,29 @@
 <mat-toolbar [formGroup]="formSearch">
-  <mat-form-field>
+  <mat-form-field color="primary">
     <mat-label>Destination</mat-label>
-    <select matNativeControl required formControlName="destination">
-      <option [value]="item.key" *ngFor="let item of localeItem">{{ item.text }}</option>
-    </select>
+    <mat-select matNativeControl required formControlName="destination">
+      <mat-option [value]="item.key" *ngFor="let item of localeItem">{{ item.text }}</mat-option>
+    </mat-select>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field color="primary">
     <mat-label>Check In</mat-label>
     <input matInput [matDatepicker]="picker1" formControlName="date_start">
     <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
     <mat-datepicker #picker1></mat-datepicker>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field color="primary">
     <mat-label>Check Out</mat-label>
     <input matInput [matDatepicker]="picker2" formControlName="date_end">
     <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
     <mat-datepicker #picker2></mat-datepicker>
   </mat-form-field>
-  <mat-form-field>
+  <mat-form-field color="primary">
     <mat-label>Travel Type</mat-label>
-    <select matNativeControl required formControlName="travelType">
-      <option [value]="item.text" *ngFor="let item of trevaleType">{{item.value}}</option>
-    </select>
+    <mat-select matNativeControl required formControlName="travelType">
+      <mat-option [value]="item.text" *ngFor="let item of trevaleType">{{item.value}}</mat-option>
+    </mat-select>
   </mat-form-field>
-  <button class="ui button" (click)="getSearch()">
+  <button mat-flat-button>
     <i class="search icon"></i>Find Now
   </button>
 </mat-toolbar>
