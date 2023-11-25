@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoaderModule } from '../../shared/components/louder/loader.module';
 import { CardTourComponent } from './components/card-tour/card-tour.component';
+import { ToursModule } from '../../store/tours/tours.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { CardTourComponent } from './components/card-tour/card-tour.component';
     MatButtonModule,
     RouterModule.forChild([
       { path: '', component: HomeComponent, pathMatch: 'full' }
-    ])
+    ]),
+    ToursModule
   ]
 })
 export class HomeModule { }

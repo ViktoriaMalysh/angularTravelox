@@ -1,4 +1,4 @@
-<app-search-form (dataTours)="getToursData($event)" (isLoadingData)="startLoader($event)"></app-search-form>
+<app-search-form (dataTours)="getToursData()" (isLoadingData)="startLoader($event)"></app-search-form>
 <app-loader [loading]="isLoading"></app-loader>
 <ng-container *ngFor="let item of paginateData">
   <app-card-tour [cardTour]="item"></app-card-tour>

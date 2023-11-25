@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementItem } from '../../../shared/interfaces/searchItem';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +15,24 @@ export class HomeComponent implements OnInit {
   public isLoading: boolean = false;
   public paginateData: ElementItem[] = [];
   private resultSearch: ElementItem[] = [];
-  constructor() { }
+  constructor(
+    private store: Store<{ tours: any[] }>
+  ) { }
 
   ngOnInit(): void {
   }
 
-  getToursData(data: ElementItem[]) {
-    console.info('getToursData: ', data);
-    this.resultSearch = data;
-    this.pageLength = this.resultSearch.length;
-    this.updateDataSource();
+  getToursData() {
+    this.store.pipe(select('tours')).subscribe(
+      (data: any): void => {
+        if (data.result?.tours) {
+          this.isLoading = false;
+          this.resultSearch = data.result.tours;
+          this.pageLength = this.resultSearch.length;
+          this.updateDataSource();
+        }
+      }
+    );
   }
 
   startLoader(value: boolean) {

@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import { ApiService } from '../../../../service/api.service';
 import { locale } from '../../../../shared/constatns/locations';
 import { Location } from '../../../../shared/interfaces/locate';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import * as dayjs from 'dayjs'
-import {ElementItem, Tours} from "../../../../shared/interfaces/searchItem";
+
+import { Store } from '@ngrx/store';
+import { loadTours } from '../../../../store/tours/actions/tours.actions';
 
 @Component({
   selector: 'app-search-form',
@@ -12,7 +13,7 @@ import {ElementItem, Tours} from "../../../../shared/interfaces/searchItem";
   styleUrls: ['./search-form.component.scss']
 })
 export class SearchFormComponent {
-  @Output() dataTours: EventEmitter<ElementItem[]> = new EventEmitter<ElementItem[]>();
+  @Output() dataTours: EventEmitter<void> = new EventEmitter<void>();
   @Output() isLoadingData: EventEmitter<boolean> = new EventEmitter<boolean>();
   public localeItem: Location[] = locale;
   public trevaleType = [
@@ -53,7 +54,7 @@ export class SearchFormComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private api: ApiService
+    private store: Store<{ tours: any[] }>
   ) {
     this.formSearch = this.formBuilder.group({
       destination: ['', [Validators.required]],
@@ -94,15 +95,7 @@ export class SearchFormComponent {
       sort: 'PRICE_LOW_TO_HIGH',
       filters: { price: { min: 100, max: 150 }, star: [ '50' ] }
     }
-    this.api.getTours(data)
-      .subscribe(
-        (items: Tours): void => {
-          this.dataTours.emit(items.tours);
-          this.isLoadingData.emit(false);
-        },
-        (error) => {
-          console.warn('Error this.api.getTours: ', error);
-        }
-    );
+    this.store.dispatch(loadTours({ data: data }));
+    this.dataTours.emit();
   }
 }
