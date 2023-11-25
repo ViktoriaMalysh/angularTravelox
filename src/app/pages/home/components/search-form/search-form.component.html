@@ -23,7 +23,7 @@
       <mat-option [value]="item.text" *ngFor="let item of trevaleType">{{item.value}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-flat-button>
+  <button mat-flat-button (click)="getSearch()">
     <i class="search icon"></i>Find Now
   </button>
 </mat-toolbar>
