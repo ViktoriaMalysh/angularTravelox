@@ -2,4 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  p {
+    color: #fca702;
+    text-align: center;
+  }
 }
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #fca702;
+}
+

@@ -1,8 +1,10 @@
 <app-search-form (dataTours)="getToursData()" (isLoadingData)="startLoader($event)"></app-search-form>
 <app-loader [loading]="isLoading"></app-loader>
-<ng-container *ngFor="let item of paginateData">
-  <app-card-tour [cardTour]="item"></app-card-tour>
-</ng-container>
+<div class="list-cards">
+  <div class="card" *ngFor="let item of paginateData">
+    <app-card-tour [cardTour]="item"></app-card-tour>
+  </div>
+</div>
 <mat-paginator
   (page)="handlePageChange($event)"
   [length]="pageLength"
