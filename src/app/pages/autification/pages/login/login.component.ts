@@ -32,16 +32,18 @@ export class LoginComponent {
 
     const email = this.formLogin.get('email')?.value;
     const password = this.formLogin.get('password')?.value;
-    this.authService.signIn(email, password)
-      .subscribe(
-      (value) => {
-        console.warn('Successfully login value', value);
-        // this.router.navigate(['/']).then();
-      },
-      (value) => {
-        console.warn('Error login value', value);
-      }
-    );
+    this.router.navigate(['/']).then();
+    // this.authService.signIn(email, password)
+    //   .subscribe(
+    //   (value) => {
+    //     console.warn('Successfully login value', value);
+    //     // this.router.navigate(['/']).then();
+    //   },
+    //   (value) => {
+    //     console.warn('Error login value', value);
+    //   }
+    // );
+
   }
 
   shownPassword() {
