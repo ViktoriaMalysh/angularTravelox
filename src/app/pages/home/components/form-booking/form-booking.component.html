@@ -1,0 +1,66 @@
+<mat-card class="card-container">
+  <h2>{{ data.name }}</h2>
+  <form [formGroup]="formBooking">
+    <mat-form-field class="input-field">
+      <mat-label>First name</mat-label>
+      <input type="string" matInput required formControlName="firstName"
+             placeholder="First name">
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <mat-label>Last name</mat-label>
+      <input type="string" matInput required formControlName="secondName"
+             placeholder="Second name">
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput required formControlName="email" [errorStateMatcher]="matcher"
+             placeholder="Example pat@example.com">
+      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-error *ngIf="(formBooking.controls['email'].hasError('email') && !formBooking.controls['email'].hasError('required'))">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="(formBooking.controls['email'].hasError('required'))">Email is <strong>required</strong></mat-error>
+    </mat-form-field>
+
+    <div class="block-bottom">
+      <mat-form-field>
+        <mat-label>Date In</mat-label>
+        <input matInput [matDatepicker]="picker1" formControlName="date_start">
+        <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Date Out</mat-label>
+        <input matInput [matDatepicker]="picker2" formControlName="date_end">
+        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-field">
+        <mat-label>Card number</mat-label>
+        <input type="number" matInput maxlength="16" required formControlName="cardNumber"
+               placeholder="4242 4242 4242 4242">
+      </mat-form-field>
+      <div class="block-bottom">
+        <mat-form-field class="input-card-item">
+          <mat-label>Month/Year</mat-label>
+          <input type="string" matInput required formControlName="cardMonYear"
+                 placeholder="Month/Year">
+        </mat-form-field>
+        <mat-form-field class="input-card-item">
+          <mat-label>CVC</mat-label>
+          <input type="string" maxlength="3" matInput required formControlName="cardCVC"
+                 placeholder="CVC">
+        </mat-form-field>
+      </div>
+    </div>
+    <div>
+      <p>Price: {{ data.price }}</p>
+    </div>
+    <div class="block-bottom">
+      <button mat-raised-button color="warn" (click)="onNoClick()">No Thanks</button>
+      <button mat-raised-button color="primary" (click)="onYesClick()">Pay</button>
+    </div>
+  </form>
+</mat-card>

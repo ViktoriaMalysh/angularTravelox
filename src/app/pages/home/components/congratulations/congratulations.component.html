@@ -1,0 +1,8 @@
+<mat-card class="card-container">
+  <h2>Congratulations on your successful booking</h2>
+  <p>Place: {{ data.name }}</p>
+  <p>Price: {{ data.price }}</p>
+  <p>Arrival date: {{ data.date_start }}</p>
+  <p>Departure date: {{ data.date_end }}</p>
+  <button mat-raised-button color="primary" (click)="closeModal()">Ok</button>
+</mat-card>

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ElementItem } from '../../../shared/interfaces/searchItem';
 import { Store, select } from '@ngrx/store';
 import { MatDialog } from '@angular/material/dialog';
+
 import { FormBookingComponent } from '../components/form-booking/form-booking.component';
+import { CongratulationsComponent } from '../components/congratulations/congratulations.component';
 
 @Component({
   selector: 'app-home',
@@ -60,6 +62,10 @@ export class HomeComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
+      if (result.status === 'error') {
+        return;
+      }
+      this.dialog.open(CongratulationsComponent, {data: result.data});
     });
   }
 }

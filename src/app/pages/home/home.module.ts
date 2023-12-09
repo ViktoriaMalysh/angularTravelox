@@ -20,13 +20,15 @@ import { CardTourComponent } from './components/card-tour/card-tour.component';
 import { ToursModule } from '../../store/tours/tours.module';
 import { FormBookingComponent } from './components/form-booking/form-booking.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CongratulationsComponent } from './components/congratulations/congratulations.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SearchFormComponent,
     CardTourComponent,
-    FormBookingComponent
+    FormBookingComponent,
+    CongratulationsComponent
   ],
   imports: [
     CommonModule,
