@@ -1,0 +1,54 @@
+.avatar {
+  display: flex;
+  align-items: center;
+
+  img {
+    border-radius: 50px;
+    width: 40px;
+  }
+  p {
+    padding-left: 10px;
+    font-size: 16px;
+  }
+}
+
+// Например, ваш файл стилей styles.scss или другой глобальный файл, подключенный к проекту
+
+::ng-deep {
+  mat-toolbar {
+    background-color: rgba(0, 123, 255, 0.5);
+  }
+  mat-form-field {
+
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+  }
+  mat-select {
+    // background-color: #ffffff;
+    color: #333;
+    border: none !important;
+
+    // Изменение стиля рамки и тени для обводки
+    &.mat-focused,
+    &.mat-select-focused {
+      border-color: #fca702; // #007bff;
+      box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+      color: #fca702 !important;
+    }
+  }
+
+  // Переопределение стилей для mat-option
+  mat-option {
+    &:hover {
+      background-color: #fca702 !important;
+      color: #fff;
+    }
+
+    &.mat-selected {
+      background-color: #fca702 !important;
+      color: #fff;
+    }
+  }
+}
+
