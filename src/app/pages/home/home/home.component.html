@@ -1,11 +1,13 @@
+<app-header></app-header>
 <app-search-form (dataTours)="getToursData()" (isLoadingData)="startLoader($event)"></app-search-form>
 <app-loader [loading]="isLoading"></app-loader>
 <div class="list-cards">
   <div class="card" *ngFor="let item of paginateData">
-    <app-card-tour [cardTour]="item"></app-card-tour>
+    <app-card-tour [cardTour]="item" (openModal)="openBookingModal($event)"></app-card-tour>
   </div>
 </div>
 <mat-paginator
+  *ngIf="paginateData.length"
   (page)="handlePageChange($event)"
   [length]="pageLength"
   [pageSize]="pageSize"

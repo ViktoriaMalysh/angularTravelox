@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { locale } from '../../../../shared/constatns/locations';
 import { Location } from '../../../../shared/interfaces/locate';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';

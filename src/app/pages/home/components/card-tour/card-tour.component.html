@@ -2,12 +2,13 @@
   <mat-card-content>
     <img class="card-picture"
       [src]="cardTour?.propertyImage?.image?.url" alt="">
-    <div>
-      <p></p>
-    </div>
+
     <h2>{{ cardTour?.name }}</h2>
     <p>Star: {{ cardTour?.star }}  ({{ cardTour?.reviews?.total }} Reviews)</p>
     <p><span>{{cardTour?.mapMarker?.label}}/per person</span></p>
+    <div>
+      Price: {{ cardTour.price.lead.formatted }}
+    </div>
   </mat-card-content>
-  <button class="card-button" mat-raised-button color="accent">Detail</button>
+  <button class="card-button" mat-raised-button color="accent" (click)="openBookingForm(cardTour.name, cardTour.price.lead.formatted)">Booking Now</button>
 </mat-card>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementItem } from '../../../shared/interfaces/searchItem';
 import { Store, select } from '@ngrx/store';
+import { MatDialog } from '@angular/material/dialog';
+import { FormBookingComponent } from '../components/form-booking/form-booking.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +18,7 @@ export class HomeComponent implements OnInit {
   public paginateData: ElementItem[] = [];
   private resultSearch: ElementItem[] = [];
   constructor(
+    public dialog: MatDialog,
     private store: Store<{ tours: any[] }>
   ) { }
 
@@ -47,5 +50,16 @@ export class HomeComponent implements OnInit {
 
   updateDataSource(): void {
     this.paginateData = this.resultSearch.slice(this.pageIndex * this.pageSize, (this.pageIndex + 1) * this.pageSize)
+  }
+
+  openBookingModal(dataSource: {name: string, price: string}): void {
+    console.info('data', dataSource);
+    // console.info('price', price);
+    const dialogRef = this.dialog.open(
+      FormBookingComponent, {data: dataSource}
+    );
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
 }

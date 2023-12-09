@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ElementItem } from '../../../../shared/interfaces/searchItem';
 
 @Component({
@@ -7,5 +7,10 @@ import { ElementItem } from '../../../../shared/interfaces/searchItem';
   styleUrls: ['./card-tour.component.scss']
 })
 export class CardTourComponent {
-  @Input() cardTour?: ElementItem;
+  @Input() cardTour: any;
+  @Output() openModal: EventEmitter<{name: string, price: string}> = new EventEmitter<{name: string, price: string}>();
+
+  openBookingForm(name: string, price: string): void {
+    this.openModal.emit({name, price});
+  }
 }

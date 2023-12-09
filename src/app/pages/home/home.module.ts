@@ -18,12 +18,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoaderModule } from '../../shared/components/louder/loader.module';
 import { CardTourComponent } from './components/card-tour/card-tour.component';
 import { ToursModule } from '../../store/tours/tours.module';
+import { FormBookingComponent } from './components/form-booking/form-booking.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SearchFormComponent,
-    CardTourComponent
+    CardTourComponent,
+    FormBookingComponent
   ],
   imports: [
     CommonModule,
@@ -41,10 +44,12 @@ import { ToursModule } from '../../store/tours/tours.module';
     LoaderModule,
     MatCardModule,
     MatButtonModule,
+    MatDialogModule,
     RouterModule.forChild([
       { path: '', component: HomeComponent, pathMatch: 'full' }
     ]),
     ToursModule
-  ]
+  ],
+  // providers: [MatDialog]
 })
 export class HomeModule { }
