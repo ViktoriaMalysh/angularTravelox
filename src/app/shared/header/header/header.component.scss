@@ -1,3 +1,41 @@
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  svg:hover {
+    color: #fca702 !important;
+  }
+
+  mat-icon {
+    margin: 0 10px;
+  }
+}
+
+.phone-email-block {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 250px;
+  max-width: 500px;
+  font-size: 18px;
+}
+.block-social {
+  width: 100%;
+  min-width: 150px;
+  max-width: 500px;
+}
+
+.block-select {
+  .select-item {
+    width: 80px;
+  }
+}
 .avatar {
   display: flex;
   align-items: center;
@@ -31,6 +69,7 @@
 
     // Изменение стиля рамки и тени для обводки
     &.mat-focused,
+    &.mat-mdc-option-active,
     &.mat-select-focused {
       border-color: #fca702; // #007bff;
       box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
@@ -46,6 +85,10 @@
     }
 
     &.mat-selected {
+      background-color: #fca702 !important;
+      color: #fff;
+    }
+    &.mat-mdc-option-active {
       background-color: #fca702 !important;
       color: #fff;
     }
