@@ -31,14 +31,15 @@ export class FormBookingComponent {
       email: ['', [Validators.required, Validators.email]],
       date_start: ['', [Validators.required]],
       date_end: ['', [Validators.required]],
-      cardNumber: ['', [Validators.required, Validators.max(19)]],
+      cardNumber: ['', [Validators.required, Validators.maxLength(16)]],
       cardMonYear: ['', [Validators.required]],
-      cardCVC: ['', [Validators.required, Validators.max(3)]],
+      cardCVC: ['', [Validators.required, Validators.maxLength(3)]],
     })
   }
 
   onYesClick(): void {
     this.formBooking.markAllAsTouched();
+    console.info('this.formBooking.value: ', this.formBooking.value)
     if (this.formBooking.invalid) {
       return;
     }
